@@ -32,6 +32,23 @@ The goal was to transform raw Airbnb data into actionable business insights thro
 ---
 
 ## 📂 Repository Structure
+📦FallDetectionSystem
+ ┣ 📂notebooks
+ ┃ ┗ 📜Fall_Detection_Modeling_using_YOLOV11.ipynb
+ ┣ 📂scripts
+ ┃ ┣ 📜advanced_train_yolo.py
+ ┃ ┣ 📜balanced_augmentation_utils.py
+ ┃ ┣ 📜caucafall_dataset_structuring.ipynb
+ ┃ ┣ 📜false_prediction_finder.py
+ ┃ ┣ 📜hard_sample_finetuning_on_train23.py
+ ┃ ┣ 📜invert_falls_label.py
+ ┃ ┗ 📜model_comparison.py
+ ┣ 📂Falldetection_web
+ ┃ ┣ 📜Django backend and frontend code
+ ┣ 📂sample_results
+ ┃ ┗ 📜Sample annotated prediction images
+ ┣ 📜README.md
+ ┗ 📜requirements.txt
 
 End-to-End Airbnb Data Analysis Project/
 
