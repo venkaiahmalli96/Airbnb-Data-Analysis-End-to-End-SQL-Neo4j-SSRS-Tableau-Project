@@ -1,5 +1,5 @@
 # Airbnb Data Analysis – End-to-End SQL, Neo4j, SSRS & Tableau Project
-   A final year MSc in Data Analytics project submitted to Dublin Business School
+  This project was completed as part of the “Data Storage Solutions for Data Analytics” module at Dublin Business School (Lecturer: Dr Anesu Nyabadza).
    Developed by Venkaiah Malli
 
 ## 📌 Project Overview 
