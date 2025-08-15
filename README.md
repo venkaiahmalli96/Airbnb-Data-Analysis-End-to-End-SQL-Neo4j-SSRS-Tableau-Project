@@ -23,8 +23,6 @@ The goal was to transform raw Airbnb data into actionable business insights thro
 
 
 ---
-
-
 ## 🛠 Tech Stack
 - **Relational Database**: MySQL / Oracle (SQL DDL, DML)
 - **Graph Database**: Neo4j (Cypher queries)
@@ -61,16 +59,22 @@ airbnb-data-analysis-end-to-end
 │   └── Airbnb_Tableau_Report_Dashboard.twbx
 │
 ├── docs/                          # Reports and presentations
-│   ├── Group_Report_DSS.pdf
-│   ├── Individual_Report_Venkaiah_Malli.pdf
-│   └── Group_Presentation_Data_Storage.pdf
+│   ├── Airbnb_project_VenkaiahMalli.pdf
 │
-├── images/                        # Screenshots for README (optional)
-│   ├── tableau_dashboard.png
-│   └── ssrs_report.png
 │
 ├── README.md                      # Project overview (this file)
 └── LICENSE                        # License file
 
 ---
 
+## 📌 Project Objectives
+1. **Data Modeling & Storage**
+   - Create relational (SQL) and graph (Neo4j) database models.
+2. **Data Cleaning & Transformation**
+   - Perform ETL from CSV into both SQL and Neo4j.
+3. **Data Analysis**
+   - Write advanced SQL and Cypher queries to answer business questions and track KPIs.
+4. **Business Intelligence**
+   - Build SSRS reports and Tableau dashboards for stakeholders.
+5. **Documentation**
+   - Deliver full technical and business documentation.
