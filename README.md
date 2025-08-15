@@ -37,7 +37,8 @@ End-to-End Airbnb Data Analysis Project/
 
 │
 ├── data/ # Raw Airbnb dataset (CSV)
-│ └── airbnb_data.csv
+
+   │    └── airbnb_data.csv
 
 │
 ├── sql/ # SQL scripts (DDL, DML, analysis queries)
