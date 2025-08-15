@@ -34,9 +34,11 @@ The goal was to transform raw Airbnb data into actionable business insights thro
 ## 📂 Repository Structure
 
 End-to-End Airbnb Data Analysis Project/
+
 │
 ├── data/ # Raw Airbnb dataset (CSV)
 │ └── airbnb_data.csv
+
 │
 ├── sql/ # SQL scripts (DDL, DML, analysis queries)
 │ ├── table_creation_and_insert.sql
