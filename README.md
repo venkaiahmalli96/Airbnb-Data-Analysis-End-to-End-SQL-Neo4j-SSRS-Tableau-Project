@@ -21,6 +21,23 @@ The goal was to transform raw Airbnb data into actionable business insights thro
 5. **Documentation**
    - Deliver full technical and business documentation.
 
+## 📌 Project Objectives
+```plaintext
+1. **Data Modeling & Storage**
+   - Create relational (SQL) and graph (Neo4j) database models.
+
+2. **Data Cleaning & Transformation**
+   - Perform ETL from CSV into both SQL and Neo4j.
+
+3. **Data Analysis**
+   - Write advanced SQL and Cypher queries to answer business questions and track KPIs.
+
+4. **Business Intelligence**
+   - Build SSRS reports and Tableau dashboards for stakeholders.
+
+5. **Documentation**
+   - Deliver full technical and business documentation.
+
 
 ---
 ## 🛠 Tech Stack
