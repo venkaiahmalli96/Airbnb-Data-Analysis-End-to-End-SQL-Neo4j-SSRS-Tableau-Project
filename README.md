@@ -32,38 +32,15 @@ The goal was to transform raw Airbnb data into actionable business insights thro
 ---
 
 ## 📂 Repository Structure
-📦FallDetectionSystem
- ┣ 📂notebooks
- ┃ ┗ 📜Fall_Detection_Modeling_using_YOLOV11.ipynb
- ┣ 📂scripts
- ┃ ┣ 📜advanced_train_yolo.py
- ┃ ┣ 📜balanced_augmentation_utils.py
- ┃ ┣ 📜caucafall_dataset_structuring.ipynb
- ┃ ┣ 📜false_prediction_finder.py
- ┃ ┣ 📜hard_sample_finetuning_on_train23.py
- ┃ ┣ 📜invert_falls_label.py
- ┃ ┗ 📜model_comparison.py
- ┣ 📂Falldetection_web
- ┃ ┣ 📜Django backend and frontend code
- ┣ 📂sample_results
- ┃ ┗ 📜Sample annotated prediction images
- ┣ 📜README.md
- ┗ 📜requirements.txt
 
-End-to-End Airbnb Data Analysis Project/
-
-│
-├── data/ # Raw Airbnb dataset (CSV)
-
-   │    └── airbnb_data.csv
-
-│
-├── sql/ # SQL scripts (DDL, DML, analysis queries)
-│ ├── table_creation_and_insert.sql
-│ └── seven_analysis_queries.sql
-│
+**End-to-End Airbnb Data Analysis Project/**
+│ ├── data/ # Raw Airbnb dataset (CSV)
+     └── airbnb_data.csv
+├ ── sql/ # SQL scripts (DDL, DML, analysis queries)
+   │ ├── table_creation_and_insert.sql
+   │ └── seven_analysis_queries.sql
 ├── neo4j/ # Graph database (Neo4j Cypher queries)
-│ └── seven_analysis_queries.cql
+   │ └── seven_analysis_queries.cql
 │
 ├── ssrs/ # SSRS project files and report outputs
 │ ├── AIRBNB.ssmssqlproj
