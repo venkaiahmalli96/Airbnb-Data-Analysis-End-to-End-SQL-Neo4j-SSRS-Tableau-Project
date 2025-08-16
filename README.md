@@ -107,9 +107,7 @@ airbnb-data-analysis-end-to-end
 - 📄 File: `tableau/Airbnb_Tableau_Report_Dashboard.twbx`
 
 ### **5. Documentation**
-- `docs/Group_Report_DSS.pdf` – Technical design & methodology
-- `docs/Individual_Report_Venkaiah_Malli.pdf` – My contributions & insights
-- `docs/Group_Presentation_Data_Storage.pdf` – Project presentation slides
+- `docs/Airbnb_Project_Venkaiahmalli.pdf` – Technical design & methodology complete report
 
 ---
 
