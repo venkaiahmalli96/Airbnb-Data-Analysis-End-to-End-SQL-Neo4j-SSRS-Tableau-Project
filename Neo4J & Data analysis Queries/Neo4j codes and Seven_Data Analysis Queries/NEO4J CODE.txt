@@ -1,0 +1,59 @@
+NEO4J CODE:
+
+LOAD CSV WITH HEADERS FROM 'file:///Airbnb_Data.csv' AS row
+MERGE (p:Property {id: toInteger(row.id)})
+SET p.name = row.name,
+    p.room_type = row.room_type,
+    p.price = toInteger(row.price),
+    p.minimum_nights = toInteger(row.minimum_nights),
+    p.number_of_reviews = toInteger(row.number_of_reviews),
+    p.reviews_per_month = toFloat(row.reviews_per_month),
+    p.availability_365 = toInteger(row.availability_365),
+    p.number_of_reviews_ltm = toInteger(row.number_of_reviews_ltm),
+    p.neighbourhood = row.neighbourhood,
+    p.neighbourhood_group = row.neighbourhood_group;
+
+
+//1.What are the top 10 most Most expensive Properties.
+
+match(p:Property)
+Return p.id as ID,p.name as NAME,p.price as PRICE
+Order by p.price DESC
+Limit 10; 
+
+//2.Average Price per room type?
+match(p:Property)
+Return p.room_type as Room_Type,avg(p.price) as Avg_Price
+Order by Avg_Price desc;
+
+//3.Top 10 Neighbourhood with Most number of Properties
+MATCH(p:Property)
+Return p.neighbourhood as Neighbourhood,p.neighbourhood_group as Neighbourhood_Group,COUNT(*) AS Property_Count
+
+order by Property_Count DESC
+limit 10;
+
+//4.Total Available Properties by Room Type?
+MATCH(p:Property)
+Return p.room_type as Room_type,count(*) as Total_Available_Properties
+ORDER BY Total_Available_Properties DESC;
+
+//5.What are the Top 12 Lowest Price Properties along with stay requirements?
+MATCH(p:Property)
+RETURN p.id as Property_ID,p.name as Property_Name,p.neighbourhood as Nighbourhood,p.price as Price,p.minimum_nights as Minimum_Nights
+order by Price ASC
+LIMIT 12;
+
+
+//6.What are the Properties with Highest Average Reviews per month?
+MATCH (p:Property)
+WITH p.id AS Property_ID, p.name AS Property_Name, AVG(p.reviews_per_month) AS Avg_Reviews_Per_Month
+RETURN Property_ID, Property_Name, Avg_Reviews_Per_Month
+ORDER BY Avg_Reviews_Per_Month DESC
+LIMIT 10;
+
+
+//7.Average Availability by Neighbourhood Group
+MATCH(p:Property)
+RETURN p.neighbourhood_group as Neighbourhood_Group ,AVG(p.availability_365) as Average_Availability
+ORDER BY Average_Availability DESC;

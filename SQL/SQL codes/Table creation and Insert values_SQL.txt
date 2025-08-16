@@ -1,0 +1,116 @@
+/* creating Hosts Dimension Table for Airbnb Listening */
+
+CREATE TABLE Hosts (
+    HostID INT PRIMARY KEY,
+    Host_Name VARCHAR(255),
+    Calculated_Host_Listings_Count INT
+);
+
+/* Creating  Availability Dimension Table for Airbnb Listening */
+
+CREATE TABLE Availability (
+    AvailabilityID INT PRIMARY KEY AUTO_INCREMENT,
+    Availability_365 INT
+);
+
+/* Creating  Reviews Dimension Table for Airbnb listening */
+
+CREATE TABLE Reviews (
+    ReviewID INT PRIMARY KEY AUTO_INCREMENT,
+    Last_Review DATE,
+    Reviews_per_Month FLOAT
+);
+
+/*Creating  Location_Info Dimension Table for Airbnb listening */
+
+CREATE TABLE Location_Info (
+    LocationID INT PRIMARY KEY AUTO_INCREMENT,
+    Neighbourhood VARCHAR(255),
+    Neighbourhood_Group VARCHAR(255),
+    Latitude FLOAT,
+    Longitude FLOAT
+);
+
+
+
+/* Create Fact Table: Airbnb_Listing_Properties */
+
+CREATE TABLE Airbnb_Listing_Properties (
+    PropertyID INT PRIMARY KEY,
+    HostID INT,
+    AvailabilityID INT,
+    ReviewID INT,
+    LocationID INT,
+    Price FLOAT,
+    Property_Name VARCHAR(255),
+    Minimum_Nights INT,
+    Room_Type VARCHAR(255),
+    Number_Of_Reviews INT,
+    Number_Of_Reviews_Ltm INT,
+    FOREIGN KEY (HostID) REFERENCES Hosts(HostID),
+    FOREIGN KEY (AvailabilityID) REFERENCES Availability(AvailabilityID),
+    FOREIGN KEY (ReviewID) REFERENCES Reviews(ReviewID),
+    FOREIGN KEY (LocationID) REFERENCES Location_Info(LocationID)
+);
+
+
+/* Inserting values for Hosts table from Airbnb dataset */
+
+INSERT INTO hosts (HostID, Host_Name, Calculated_Host_Listings_Count)
+SELECT DISTINCT 
+    host_id AS HostID, 
+    host_name AS Host_Name, 
+    calculated_host_listings_count AS Calculated_Host_Listings_Count
+FROM airbnb_data;
+
+/* Insert values location info dimention table from airbnb dataset */
+INSERT INTO location_info (LocationID, Neighbourhood, Neighbourhood_Group, Latitude, Longitude)
+SELECT DISTINCT 
+    id AS LocationID, 
+    neighbourhood AS Neighbourhood, 
+    neighbourhood_group AS Neighbourhood_Group, 
+    latitude, 
+    longitude
+FROM airbnb_data;
+
+/* Inserting values availability Dimention table from Airbnb data */
+INSERT INTO availability (AvailabilityID, Availability_365)
+SELECT DISTINCT 
+    id AS AvailabilityID, 
+    availability_365 AS Availability_365
+FROM airbnb_data;
+
+/* Inserting values into reviews dimention table from Airbnb data*/
+INSERT INTO reviews (ReviewID, Last_Review, Reviews_per_Month)
+SELECT DISTINCT 
+    id AS ReviewID, 
+    last_review AS Last_Review, 
+    reviews_per_month AS Reviews_per_Month
+FROM airbnb_dataset;
+
+
+
+
+/* Inserting values into the Airbnb_Property fact table */
+INSERT INTO airbnb_listing_properties(PropertyID, HostID, LocationID, AvailabilityID, ReviewID, Property_Name, Room_Type, Price, Minimum_Nights, Number_Of_Reviews, Number_Of_Reviews_ltm)
+SELECT 
+    airbnb_data.id AS PropertyID,
+    hosts.HostID,
+    location_info.LocationID,
+    availability.AvailabilityID,
+    reviews.ReviewID,
+    airbnb_data.name AS Property_Name,
+    airbnb_data.room_type AS Room_Type,
+    airbnb_data.price AS Price,
+    airbnb_data.minimum_nights AS Minimum_Nights,
+    airbnb_data.number_of_reviews AS Number_Of_Reviews,
+    airbnb_data.number_of_reviews_ltm AS Number_Of_Reviews_ltm
+FROM 
+    airbnb_data
+JOIN hosts ON airbnb_data.host_id = hosts.HostID
+JOIN location_info ON airbnb_data.id = location_info.LocationID
+JOIN availability ON airbnb_data.id = availability.AvailabilityID
+JOIN reviews ON airbnb_data.id = reviews.ReviewID;
+
+
+

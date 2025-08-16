@@ -1,0 +1,66 @@
+/* Report 1.Host Perfomance based on Number of Listenings and Reviews?
+*/
+SELECT 
+    h.Host_Name AS Host_Name,
+    h.Calculated_Host_Listings_Count AS Listings_Count,
+    SUM(r.Reviews_per_Month) AS Total_Reviews_Per_Month
+FROM 
+    Hosts AS h
+JOIN 
+    Airbnb_Listing_Properties AS alp ON h.HostID = alp.HostID
+JOIN 
+    Reviews AS r ON alp.ReviewID = r.ReviewID
+GROUP BY 
+    h.Host_Name, h.Calculated_Host_Listings_Count
+ORDER BY 
+    Total_Reviews_Per_Month DESC;
+
+/*2.Estimated Revenue by NEighbourhood Group*/
+
+SELECT 
+    li.Neighbourhood_Group AS Neighbourhood_Group,
+    COUNT(alp.PropertyID) AS Total_Properties,
+    SUM(alp.Price * alp.Minimum_Nights) AS Estimated_Revenue
+FROM 
+    Location_Info AS li
+JOIN 
+    Airbnb_Listing_Properties AS alp ON li.LocationID = alp.LocationID
+GROUP BY 
+    li.Neighbourhood_Group
+ORDER BY 
+    Estimated_Revenue DESC;
+
+/*Report 3: Average availability by Room Type and Neighbourhood_Group? */
+
+SELECT 
+    li.Neighbourhood_Group AS Neighbourhood_Group,
+    alp.Room_Type AS Room_Type,
+    AVG(a.Availability_365) AS Avg_Availability
+FROM 
+    Location_Info AS li
+JOIN 
+    Airbnb_Listing_Properties AS alp ON li.LocationID = alp.LocationID
+JOIN 
+    Availability AS a ON alp.AvailabilityID = a.AvailabilityID
+GROUP BY 
+    li.Neighbourhood_Group, alp.Room_Type
+ORDER BY 
+    Avg_Availability DESC;
+
+/* report 4: Top rated Properties by Price and Room type?*/
+SELECT
+alp.Property_Name AS Property_Name,
+ r.Reviews_per_Month AS Reviews_per_Month,
+   li.Neighbourhood AS Neighbourhood,
+ alp.Price AS Price, alp.Room_Type AS Room_Type
+FROM   Airbnb_Listing_Properties AS alp
+JOIN 
+ Reviews AS r ON alp.ReviewID = r.ReviewID
+JOIN  Location_Info AS li ON alp.LocationID = li.LocationID
+ORDER BY 
+ r.Reviews_per_Month DESC
+LIMIT 20;
+
+
+
+

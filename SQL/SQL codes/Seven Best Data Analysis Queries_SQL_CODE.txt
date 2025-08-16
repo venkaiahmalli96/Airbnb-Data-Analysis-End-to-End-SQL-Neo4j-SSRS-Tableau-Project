@@ -1,0 +1,44 @@
+/* Seven Best Data Analysis Queries based on Airbnb Property Listening*/
+/*1. Top 10 Most Expensive Properties ? */
+select id,name,price
+from airbnb_data
+ORDER BY price DESC
+LIMIT 10;
+
+/*2.Average Price Per Room type?*/
+select room_type,AVG(price) as AVG_Price
+from airbnb_data
+GROUP BY room_type
+ORDER BY AVG_Price DESC;
+/*3.Top 10 Neighbourhoods with the Most number of Properties ?*/
+SELECT neighbourhood,neighbourhood_group,COUNT(*) as Property_Count
+from airbnb_data
+GROUP BY neighbourhood
+ORDER BY Property_Count DESC
+LIMIT 10;
+/*4.Total  Available Properties by Room type?*/
+SELECT room_type,COUNT(*) as Total_Available_Properties
+from airbnb_data
+GROUP BY room_type
+ORDER BY Total_Available_Properties DESC;
+
+/*5 what are Top 20 Lowest Price Properties with minimum stay Requirements?
+*/
+SELECT id AS Property_ID,name AS Property_Name,neighbourhood,price AS Price,minimum_nights AS Minimum_Stay_Nights
+FROM airbnb_data
+ORDER BY price ASC
+LIMIT 10;
+
+/*6.What are the Properties with Highest Avg reviews per month*/
+SELECT id as Property_ID ,name as Property_Name,AVG(reviews_per_month) as Avg_Reviews_per_Month
+from airbnb_data
+GROUP BY Property_ID,Property_Name
+ORDER BY Avg_Reviews_per_Month DESC
+LIMIT 10;
+/*7.Average Availability by Neighbourhood Group */
+SELECT neighbourhood_group,AVG(availability_365) as Average_Availability
+from airbnb_data
+GROUP BY neighbourhood_group
+ORDER BY Average_Availability DESC;
+
+
