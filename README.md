@@ -145,8 +145,13 @@ airbnb-data-analysis-end-to-end
 
 ---
 
+
 ## 👤 Author
 **Venkaiah Malli**  
 - [LinkedIn](https://linkedin.com/in/venkaiah-malli-98aa47219)  
-- [GitHub](https://github.com/venkaiahmalli96)  
+- [GitHub](https://github.com/venkaiahmalli96)
+
+🙏 Acknowledgements
+Lecturer: Dr Anesu Nyabadza, Dublin Business School
+
 
