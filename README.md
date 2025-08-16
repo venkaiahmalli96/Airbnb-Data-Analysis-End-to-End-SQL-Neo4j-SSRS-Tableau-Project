@@ -62,5 +62,16 @@ airbnb-data-analysis-end-to-end
 │
 ├── README.md                      # Project overview (this file)
 └── LICENSE                        # License file
-
----
+```
+----
+## 📌 Project Objectives
+1. **Data Modeling & Storage**
+   - Create relational (SQL) and graph (Neo4j) database models.
+2. **Data Cleaning & Transformation**
+   - Perform ETL from CSV into both SQL and Neo4j.
+3. **Data Analysis**
+   - Write advanced SQL and Cypher queries to answer business questions and track KPIs.
+4. **Business Intelligence**
+   - Build SSRS reports and Tableau dashboards for stakeholders.
+5. **Documentation**
+   - Deliver full technical and business documentation.
